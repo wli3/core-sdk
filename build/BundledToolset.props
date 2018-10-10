@@ -4,18 +4,10 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <ToolsetRootUrl>$(CoreSetupBlobRootUrl)Toolset/$(ToolsetVersion)/</ToolsetRootUrl>
-    <ToolsetDownloadUrl>$(ToolsetRootUrl)$(ToolsetCompressedFileName)$(CoreSetupBlobAccessTokenParam)</ToolsetDownloadUrl>
+    <ToolsetRootUrl>C:\work2\toolset\bin\2\win-x64\packages/</ToolsetRootUrl>
+    <ToolsetDownloadUrl>$(ToolsetRootUrl)$(ToolsetCompressedFileName)</ToolsetDownloadUrl>
     <ToolsetDownloadDirectory>$(IntermediateDirectory)/toolsetDownload/$(ToolsetVersion)/</ToolsetDownloadDirectory>
     <ToolsetArchive>$(ToolsetDownloadDirectory)$(ToolsetCompressedFileName)</ToolsetArchive>
   </PropertyGroup>
 
-  <ItemGroup>
-    <_DownloadAndExtractItem Include="ToolsetArchive"
-                           Condition="!Exists('$(ToolsetArchive)')">
-      <Url>$(ToolsetDownloadUrl)</Url>
-      <DownloadFileName>$(ToolsetArchive)</DownloadFileName>
-      <ExtractDestination>$(ToolsetPublishDirectory)</ExtractDestination>
-    </_DownloadAndExtractItem>
-  </ItemGroup>
 </Project>

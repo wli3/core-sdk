@@ -59,6 +59,10 @@
                                SourceArchive="%(_DownloadAndExtractItem.DownloadFileName)"
                                DestinationDirectory="%(_DownloadAndExtractItem.ExtractDestination)"
                                OverwriteDestination="$(OverwriteExtractionDestination)" />
+
+                               
+    <ZipFileExtractToDirectory SourceArchive="$(ToolsetDownloadUrl)" DestinationDirectory="$(ToolsetPublishDirectory)">
+    </ZipFileExtractToDirectory>
   </Target>
 
   <Target Name="DownloadToolsetArtifacts">
