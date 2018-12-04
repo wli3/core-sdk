@@ -42,7 +42,14 @@
     <MSBuild
       BuildInParallel="False"
       Projects="@(AppHostTemplateDownloadPackageProject)"
-      Targets="Pack">
+      Targets="Restore"
+      Properties="NoWarn=2008%3B8021">
+    </MSBuild>
+    <MSBuild
+      BuildInParallel="False"
+      Projects="@(AppHostTemplateDownloadPackageProject)"
+      Targets="Pack"
+      Properties="NoWarn=2008%3B8021">
     </MSBuild>
   </Target>
 </Project>

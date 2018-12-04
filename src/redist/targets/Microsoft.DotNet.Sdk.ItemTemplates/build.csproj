@@ -9,6 +9,8 @@
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
     <OutputPath>$(TemplatesDir)</OutputPath>
     <EnableDefaultItems>False</EnableDefaultItems>
+    <PackageProjectUrl>https://github.com/dotnet/core-sdk</PackageProjectUrl>
+    <IsPackable>true</IsPackable>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Remove="Microsoft.NETCore.App" />
