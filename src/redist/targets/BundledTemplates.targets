@@ -25,8 +25,24 @@
     </BundledTemplate>
   </ItemGroup>
 
-  <Target Name="LayoutTemplates" DependsOnTargets="SetupBundledComponents">
+  <Target Name="LayoutTemplates" DependsOnTargets="SetupBundledComponents;LayoutSdkTemplates">
     <Copy SourceFiles="%(BundledTemplate.RestoredNupkgPath)"
           DestinationFolder="$(SdkOutputDirectory)Templates/"/>
+  </Target>
+
+  <Target Name="LayoutSdkTemplates">
+    <ItemGroup>
+      <AppHostTemplateDownloadPackageProject Include="$(MSBuildThisFileDirectory)/Microsoft.DotNet.Sdk.ItemTemplates/build.csproj">
+        <Properties>
+          PackageVersion=$(SdkVersion)
+        </Properties>
+      </AppHostTemplateDownloadPackageProject>
+    </ItemGroup>
+
+    <MSBuild
+      BuildInParallel="False"
+      Projects="@(AppHostTemplateDownloadPackageProject)"
+      Targets="Pack">
+    </MSBuild>
   </Target>
 </Project>
