@@ -115,21 +115,21 @@
         <RelativeLayoutPath>packs/%(PackageName)/%(PackageVersion)</RelativeLayoutPath>
       </BundledLayoutPackage>
 
-      <BundledLayoutPackage Include="MicrosoftNetCoreAppHostPackNupkg">
+      <BundledLayoutPackage Include="MicrosoftNetCoreAppHostPackNupkg2">
         <PackageName>Microsoft.NETCore.App.Host.win-x86</PackageName>
         <PackageVersion>$(NetCoreAppHostPackVersion)</PackageVersion>
         <TargetFramework>$(TargetFramework)</TargetFramework>
         <RelativeLayoutPath>packs/%(PackageName)/%(PackageVersion)</RelativeLayoutPath>
       </BundledLayoutPackage>
 
-      <BundledLayoutPackage Include="MicrosoftNetCoreAppHostPackNupkg">
+      <BundledLayoutPackage Include="MicrosoftNetCoreAppHostPackNupkg3">
         <PackageName>Microsoft.NETCore.App.Host.win-arm64</PackageName>
         <PackageVersion>$(NetCoreAppHostPackVersion)</PackageVersion>
         <TargetFramework>$(TargetFramework)</TargetFramework>
         <RelativeLayoutPath>packs/%(PackageName)/%(PackageVersion)</RelativeLayoutPath>
       </BundledLayoutPackage>
 
-      <BundledLayoutPackage Include="MicrosoftNetCoreAppHostPackNupkg">
+      <BundledLayoutPackage Include="MicrosoftNetCoreAppHostPackNupkg4">
         <PackageName>Microsoft.NETCore.App.Host.win-arm</PackageName>
         <PackageVersion>$(NetCoreAppHostPackVersion)</PackageVersion>
         <TargetFramework>$(TargetFramework)</TargetFramework>
