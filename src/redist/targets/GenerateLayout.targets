@@ -115,6 +115,27 @@
         <RelativeLayoutPath>packs/%(PackageName)/%(PackageVersion)</RelativeLayoutPath>
       </BundledLayoutPackage>
 
+      <BundledLayoutPackage Include="MicrosoftNetCoreAppHostPackNupkg">
+        <PackageName>Microsoft.NETCore.App.Host.win-x86</PackageName>
+        <PackageVersion>$(NetCoreAppHostPackVersion)</PackageVersion>
+        <TargetFramework>$(TargetFramework)</TargetFramework>
+        <RelativeLayoutPath>packs/%(PackageName)/%(PackageVersion)</RelativeLayoutPath>
+      </BundledLayoutPackage>
+
+      <BundledLayoutPackage Include="MicrosoftNetCoreAppHostPackNupkg">
+        <PackageName>Microsoft.NETCore.App.Host.win-arm64</PackageName>
+        <PackageVersion>$(NetCoreAppHostPackVersion)</PackageVersion>
+        <TargetFramework>$(TargetFramework)</TargetFramework>
+        <RelativeLayoutPath>packs/%(PackageName)/%(PackageVersion)</RelativeLayoutPath>
+      </BundledLayoutPackage>
+
+      <BundledLayoutPackage Include="MicrosoftNetCoreAppHostPackNupkg">
+        <PackageName>Microsoft.NETCore.App.Host.win-arm</PackageName>
+        <PackageVersion>$(NetCoreAppHostPackVersion)</PackageVersion>
+        <TargetFramework>$(TargetFramework)</TargetFramework>
+        <RelativeLayoutPath>packs/%(PackageName)/%(PackageVersion)</RelativeLayoutPath>
+      </BundledLayoutPackage>
+
       <BundledLayoutPackage Include="MicrosoftNetCoreAppHostPackNupkg_Alternate" Condition="'$(AlternateAppHostRid)' != ''">
         <PackageName>Microsoft.NETCore.App.Host.$(AlternateAppHostRid)</PackageName>
         <PackageVersion>$(NetCoreAppHostPackVersion)</PackageVersion>
