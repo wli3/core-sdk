@@ -102,20 +102,6 @@ stages:
               _RuntimeIdentifier: ''
               _BuildArchitecture: 'x64'
               _DropSuffix: ''
-            Build_Fedora_27_Debug_x64:
-              _BuildConfig: Debug
-              _DockerParameter: '--docker fedora.27'
-              _LinuxPortable: '--linux-portable'
-              _RuntimeIdentifier: ''
-              _BuildArchitecture: 'x64'
-              _DropSuffix: ''
-            Build_Fedora_28_Debug_x64:
-              _BuildConfig: Debug
-              _DockerParameter: '--docker fedora.28'
-              _LinuxPortable: '--linux-portable'
-              _RuntimeIdentifier: ''
-              _BuildArchitecture: 'x64'
-              _DropSuffix: ''
             Build_Fedora_29_Debug_x64:
               _BuildConfig: Debug
               _DockerParameter: '--docker fedora.29'
