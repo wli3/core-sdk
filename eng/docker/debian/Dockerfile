@@ -4,7 +4,20 @@
 #
 
 # Dockerfile that creates a container suitable to build dotnet-cli
-FROM mcr.microsoft.com/dotnet-buildtools/prereqs:debian-jessie-debpkg-58e4974-20190328133153
+FROM mcr.microsoft.com/dotnet-buildtools/prereqs:debian-stretch-c103199-20180628122423
+
+# Install the deb packaging toolchain we need to build debs
+RUN apt-get update \
+    && apt-get -y install \
+        debhelper \
+        build-essential \
+        devscripts \
+    && rm -rf /var/lib/apt/lists/*
+
+# liblldb is needed so deb package build does not throw missing library info errors
+RUN apt-get update \
+    && apt-get -y install liblldb-3.9 \
+    && rm -rf /var/lib/apt/lists/*
 
 # Misc Dependencies for build
 RUN rm -rf /var/lib/apt/lists/* && \
