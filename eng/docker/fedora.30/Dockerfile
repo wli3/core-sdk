@@ -3,7 +3,7 @@
 # Licensed under the MIT license. See LICENSE file in the project root for full license information.
 #
 
-FROM FROM mcr.microsoft.com/dotnet-buildtools/prereqs:fedora-30-39ec319-20190806171718
+FROM mcr.microsoft.com/dotnet-buildtools/prereqs:fedora-30-39ec319-20190806171718
 
 RUN dnf install -y nss
 
