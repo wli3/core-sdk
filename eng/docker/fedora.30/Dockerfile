@@ -14,6 +14,8 @@ ENV BASH_ENV=/opt/export_LANG.sh \
     ENV=/opt/export_LANG.sh \
     PROMPT_COMMAND="source /opt/export_LANG.sh"
 
+RUN localedef -v -c -i fr_FR -f UTF-8 fr_FR.UTF-8 || true
+
 # Override RID set by the dotnet-buildtools-prereqs docker image
 ENV __PUBLISH_RID=fedora.30-x64
 
