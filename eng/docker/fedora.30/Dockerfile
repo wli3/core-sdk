@@ -9,7 +9,10 @@ RUN dnf install -y nss
 
 RUN dnf clean all
 
-ENV LANG=en_US.utf8
+RUN echo "export LANG=en_US.utf-8" > /opt/export_LANG.sh
+ENV BASH_ENV=/opt/export_LANG.sh \
+    ENV=/opt/export_LANG.sh \
+    PROMPT_COMMAND="source /opt/export_LANG.sh"
 
 # Override RID set by the dotnet-buildtools-prereqs docker image
 ENV __PUBLISH_RID=fedora.30-x64
