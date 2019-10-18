@@ -4,7 +4,9 @@
 #
 
 # Dockerfile that creates a container suitable to build dotnet-cli
-FROM mcr.microsoft.com/dotnet-buildtools/prereqs:debian-stretch-c103199-20180628122423
+FROM mcr.microsoft.com/dotnet-buildtools/prereqs:debian-stretch-d61254f-20190807161114
+
+ENV LANG=en-US.UTF-8
 
 # Install the deb packaging toolchain we need to build debs
 RUN apt-get update \
