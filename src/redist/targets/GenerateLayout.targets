@@ -420,10 +420,10 @@
                       Overwrite="true" />
   </Target>
 
-  <Target Name="LayoutAppHostTemplate" DependsOnTargets="RunResolvePackageDependencies">
+  <Target Name="LayoutAppHostTemplate" DependsOnTargets="RunResolvePackageDependencies;DownloadBundledComponents">
 
     <PropertyGroup>
-      <NETCoreAppHostPackageName>Microsoft.NETCore.App.Host.$(SharedFrameworkRid)</NETCoreAppHostPackageName>
+      <NETCoreAppHostpkgPath>$(DownloadsFolder)$(DownloadedNetCoreAppTargetingPackInstallerFileName)</NETCoreAppHostpkgPath>
       <AppHostRestorePath>$(IntermediateOutputPath)AppHostRestore\</AppHostRestorePath>
       <AppHostTemplatePath>$(SdkOutputDirectory)AppHostTemplate</AppHostTemplatePath>
     </PropertyGroup>
@@ -431,36 +431,14 @@
     <RemoveDir Directories="$(AppHostRestorePath)" />
     <MakeDir Directories="$(AppHostRestorePath)" />
 
-    <ItemGroup>
-      <AppHostTemplateDownloadPackageProject Include="$(MSBuildThisFileDirectory)DownloadPackage.csproj">
-        <Properties>
-          PackageToRestore=$(NETCoreAppHostPackageName);
-          PackageVersionToRestore=$(MicrosoftNETCoreAppHostPackageVersion);
-          TargetFramework=$(TargetFramework);
-          RestorePackagesPath=$(AppHostRestorePath);
-          RuntimeIdentifier=$(Rid)
-        </Properties>
-      </AppHostTemplateDownloadPackageProject>
-    </ItemGroup>
-
-    <MSBuild
-      BuildInParallel="False"
-      Projects="@(AppHostTemplateDownloadPackageProject)">
-    </MSBuild>
+    <Exec Command="pkgutil \
+                      --expand-full $(NETCoreAppHostpkgPath)' \
+                     --identifier '$(SdkComponentId)' \
+                     $(AppHostRestorePath)" />
 
     <PropertyGroup>
       <AppHostExecutableName>AppHost$(ExeExtension)</AppHostExecutableName>
     </PropertyGroup>
-
-    <ItemGroup>
-      <AllFileOfRestoredAppHostPackage Include="$(AppHostRestorePath)\**\*.*" />
-      <NativeRestoredAppHostNETCore
-          Include="@(AllFileOfRestoredAppHostPackage)"
-          Condition="'%(FileName)%(Extension)' == '$(AppHostExecutableName)'"/>
-    </ItemGroup>
-
-    <Error Condition="@(NativeRestoredAppHostNETCore->Distinct()->Count()) != 1"
-           Text="Failed to determine the $(NETCoreAppHostPackageName) executable in @(AllFileOfRestoredAppHostPackage)" />
 
     <Copy
         SourceFiles="@(NativeRestoredAppHostNETCore)"
