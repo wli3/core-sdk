@@ -423,18 +423,14 @@
   <Target Name="LayoutAppHostTemplate" DependsOnTargets="RunResolvePackageDependencies;DownloadBundledComponents">
 
     <PropertyGroup>
-      <NETCoreAppHostpkgPath>$(DownloadsFolder)$(DownloadedNetCoreAppTargetingPackInstallerFileName)</NETCoreAppHostpkgPath>
+      <NETCoreAppHostpkgPath>$(DownloadsFolder)$(DownloadedNetCoreAppHostPackInstallerFileName)</NETCoreAppHostpkgPath>
       <AppHostRestorePath>$(IntermediateOutputPath)AppHostRestore\</AppHostRestorePath>
       <AppHostTemplatePath>$(SdkOutputDirectory)AppHostTemplate</AppHostTemplatePath>
     </PropertyGroup>
 
     <RemoveDir Directories="$(AppHostRestorePath)" />
-    <MakeDir Directories="$(AppHostRestorePath)" />
 
-    <Exec Command="pkgutil \
-                      --expand-full $(NETCoreAppHostpkgPath)' \
-                     --identifier '$(SdkComponentId)' \
-                     $(AppHostRestorePath)" />
+    <Exec Command="pkgutil --expand-full '$(NETCoreAppHostpkgPath)' '$(AppHostRestorePath)'" />
 
     <PropertyGroup>
       <AppHostExecutableName>AppHost$(ExeExtension)</AppHostExecutableName>
