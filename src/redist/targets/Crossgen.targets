@@ -1,6 +1,6 @@
 <Project>
   <Target Name="CrossgenLayout"
-          Condition="'$(DISABLE_CROSSGEN)' == ''"
+          Condition="false"
           DependsOnTargets="SetSdkBrandingInfo">
     
     <PropertyGroup>

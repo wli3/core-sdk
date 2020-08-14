@@ -228,7 +228,7 @@
       </BundledInstallerComponent>
 
       <BundledLayoutComponent Include="ToolsetArchive">
-        <BaseUrl>$(DotnetToolsetBlobRootUrl)Sdk/$(MicrosoftDotnetToolsetInternalPackageVersion)</BaseUrl>
+        <BaseUrl>file://williammain03/NonShipping/</BaseUrl>
         <DownloadFileName>dotnet-toolset-internal-$(MicrosoftDotnetToolsetInternalPackageVersion).zip</DownloadFileName>
         <RelativeLayoutPath>sdk/$(Version)</RelativeLayoutPath>
       </BundledLayoutComponent>
